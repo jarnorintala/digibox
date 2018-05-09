@@ -1,0 +1,10 @@
+output {
+    color: rgb(125, 34, 167);
+    font-weight: 700;
+}
+
+
+.questionheader {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
