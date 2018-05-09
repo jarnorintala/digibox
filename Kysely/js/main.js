@@ -31,7 +31,7 @@ $(document).ready(function () {
                         }
                         if (d.vaihtoehdot[i].vaihtoehto == "Huono") {
                             imgURL = "shouting.png";
-                        }
+                        };
                         items.push('<div class="form-check form-check-inline"> <label><input class="form-check-input" type="radio" name="' + d.kysymysid + '" id="' + d.kysymysid + '" value="' + d.vaihtoehdot[i].vaihtoehto + '"><img src="' + imgURL + '"></label></div>');
 
                     };
@@ -44,10 +44,10 @@ $(document).ready(function () {
 
                         items.push('<div class="form-check form-check-inline"> <input class="form-check-input" type="radio" name="' + d.kysymysid + '" id="' + d.kysymysid + '" value="' + d.vaihtoehdot[i].vaihtoehto + '"><label class="form-check-label" for="' + d.kysymysid + '">' + d.vaihtoehdot[i].vaihtoehto + '</label></div>');
 
-                    }
+                    };
                     items.push('</div>');
                     lomakekentta.push(d.kysymysid);
-                }
+                };
             };
 
         });
