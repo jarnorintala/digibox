@@ -57,13 +57,13 @@ $(document).ready(function () {
             html: items.join("")
         }).appendTo("#lomake");
         $("<button/>", {
-            class: 'btn btn-danger mb-5 mx-2',
+            class: 'btn btn-danger mb-5 mx-4',
             id: 'lopeta',
             type: "button",
             onclick: "etusivu()"
         }).appendTo("#kyselylomake");
         $("<button/>", {
-            class: 'btn btn-success mb-5 mx-2',
+            class: 'btn btn-success mb-5 mx-4',
             id: 'lahetysnappi',
             type: "button",
             onclick: "laheta()"
@@ -71,7 +71,9 @@ $(document).ready(function () {
         
         document.getElementById("lahetysnappi").innerText = 'Lähetä';
         document.getElementById("lopeta").innerText = 'Peruuta';
-        $(".loader").addClass("hide");
+        $(".loader").fadeOut(500, function() {
+            $( "#lomake" ).fadeIn(2000);
+          });
     });
 
 });

@@ -38,7 +38,8 @@ iframe{
     min-width:2560px;
 }
 #lomake{
-    transition: 1s;
+    display:none;
+    
 }
 .questionheader {
     font-size: 1.2rem;
@@ -77,8 +78,11 @@ iframe{
     border:1px solid white;
     width:70%;
 }
-
+.kiitossivu{
+    display:none;
+}
 .loader {
+    margin-top:30vh;
     z-index: 1;
     width: 150px;
     height: 150px;
