@@ -1,5 +1,5 @@
 label > input{
-    visibility: hidden;
+    display: none;
     position:absolute;
 }
 
@@ -7,7 +7,7 @@ label > img {
     -webkit-filter: grayscale(70%);
     filter: grayscale(70%);
     width:40px;
-    height: 100%;
+    height: auto;
     margin: 20px 20px;
     cursor: pointer;
     transition: 0.2s;
@@ -31,4 +31,11 @@ label > input:checked + img{
 .questionheader {
     font-size: 1.2rem;
     font-weight: 700;
+}
+
+@media only screen and (max-width: 520px) {
+    label > img {
+        width:60px;
+        margin: 20px 45px;
+    }
 }
