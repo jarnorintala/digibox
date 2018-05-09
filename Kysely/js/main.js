@@ -57,12 +57,21 @@ $(document).ready(function () {
             html: items.join("")
         }).appendTo("#lomake");
         $("<button/>", {
-            class: 'btn btn-primary mb-5',
+            class: 'btn btn-danger mb-5 mx-2',
+            id: 'lopeta',
+            type: "button",
+            onclick: "etusivu()"
+        }).appendTo("#kyselylomake");
+        $("<button/>", {
+            class: 'btn btn-success mb-5 mx-2',
             id: 'lahetysnappi',
             type: "button",
             onclick: "laheta()"
         }).appendTo("#kyselylomake");
+        
         document.getElementById("lahetysnappi").innerText = 'Lähetä';
+        document.getElementById("lopeta").innerText = 'Peruuta';
+        $(".loader").addClass("hide");
     });
 
 });
@@ -124,3 +133,7 @@ function laheta() {
         
     }
 };
+
+function etusivu(){
+    window.location.assign("index.html");
+}
