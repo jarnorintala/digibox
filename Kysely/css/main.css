@@ -87,9 +87,7 @@ iframe{
 
 @media only screen and (max-width: 768px) {
 
-    iframe{
-        left:-80%;
-        width:100%;
-      
+    .tervetuloasivu h1{
+        padding-top:5vh;
     }
 }
