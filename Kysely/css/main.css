@@ -1,9 +1,33 @@
-output {
-    color: rgb(125, 34, 167);
-    font-weight: 700;
+label > input{
+    visibility: hidden;
+    position:absolute;
 }
 
+label > img {
+    -webkit-filter: grayscale(70%);
+    filter: grayscale(70%);
+    width:40px;
+    height: 100%;
+    margin: 20px 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
 
+label > img:hover{
+    -webkit-filter: none;
+    filter: none;
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5); 
+    transform: scale(1.5);
+
+}
+label > input:checked + img{
+    -webkit-filter: none;
+    filter: none;
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}
 .questionheader {
     font-size: 1.2rem;
     font-weight: 700;
