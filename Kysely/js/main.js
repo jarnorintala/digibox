@@ -116,11 +116,11 @@ function laheta() {
         });
     };
     if (status === true) {
-        alert("lomake on lähetetty onnistuneesti!");
         console.log(lahetys);
         document.getElementById("kyselylomake").reset();
+        window.location.assign("thankyou.html");
     } else {
-        alert("lomakkeen lähetys epäonnistui! Virhekoodi: " + error);
-        document.getElementById("kyselylomake").reset();
+        alert("Lomakkeen lähettäminen epäonnistui!\nKokeile myöhemmin uudelleen.\nVirhekoodi: " + error);
+        
     }
 };

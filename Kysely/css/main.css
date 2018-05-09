@@ -28,14 +28,68 @@ label > input:checked + img{
     -webkit-transform: scale(1.5);
     transform: scale(1.5);
 }
+iframe{
+    z-index: -99;
+    position: absolute;
+    top:0;
+    width:100%;
+    height:100%;
+    min-height:1440px;
+    min-width:2560px;
+  
+
+}
 .questionheader {
     font-size: 1.2rem;
     font-weight: 700;
+}
+.tervetuloasivu{
+    margin:0;
+    padding:0;
+    overflow: hidden;
+}
+.tervetuloasivu .jumbotron{
+    min-height: 100vh;
+    background-color: rgb(153, 153, 153);
+    color: white;
+    font-weight: 700;
+    margin:0;
+    padding: 0;
+}
+.tervetuloasivu h1{
+    padding-top:25vh;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    
+}
+.tervetuloasivu p{
+    font-size:1.25rem;
+}
+
+.kiitossivu .jumbotron{
+    background-color: rgb(110, 201, 218);
+    
+}
+
+.tervetuloasivu hr{
+    border:1px solid white;
+    width:70%;
 }
 
 @media only screen and (max-width: 520px) {
     label > img {
         width:60px;
         margin: 20px 45px;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+    iframe{
+        left:-80%;
+        width:100%;
+      
     }
 }
