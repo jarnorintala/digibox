@@ -68,12 +68,12 @@ $(document).ready(function () {
             type: "button",
             onclick: "laheta()"
         }).appendTo("#kyselylomake");
-        
+
         document.getElementById("lahetysnappi").innerText = 'Lähetä';
         document.getElementById("lopeta").innerText = 'Peruuta';
-        $(".loader").fadeOut(500, function() {
-            $( "#lomake" ).fadeIn(2000);
-          });
+        $(".loader").fadeOut(500, function () {
+            $("#lomake").fadeIn(2000);
+        });
     });
 
 });
@@ -120,6 +120,10 @@ function laheta() {
                 "Content-Type": "application/json"
             },
             data: answer,
+            success: function () {
+                console.log(answer);
+            },
+
             error: function (xhr, textStatus, errorThrown) {
                 status = false;
                 error = xhr.status;
@@ -129,15 +133,15 @@ function laheta() {
     if (status === true) {
         console.log(lahetys);
         document.getElementById("kyselylomake").reset();
-        setTimeout(function(){ 
-            window.location.assign("thankyou.html"); 
-        }, 400);
+        setTimeout(function () {
+            window.location.assign("thankyou.html");
+        }, 500);
     } else {
         alert("Lomakkeen lähettäminen epäonnistui!\nKokeile myöhemmin uudelleen.\nVirhekoodi: " + error);
-        
+
     }
 };
 
-function etusivu(){
+function etusivu() {
     window.location.assign("index.html");
 }
