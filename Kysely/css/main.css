@@ -41,6 +41,14 @@ iframe{
     display:none;
     
 }
+#backgroundVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -99;
+}
 .questionheader {
     font-size: 1.2rem;
     font-weight: 700;
@@ -52,7 +60,7 @@ iframe{
 }
 .tervetuloasivu .jumbotron{
     min-height: 100vh;
-    background-color: rgb(179, 207, 212);
+    background-color: rgba(0, 0, 0, 0.158);
     color: white;
     font-weight: 700;
     margin:0;
