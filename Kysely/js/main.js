@@ -129,7 +129,9 @@ function laheta() {
     if (status === true) {
         console.log(lahetys);
         document.getElementById("kyselylomake").reset();
-        window.location.assign("thankyou.html");
+        setTimeout(function(){ 
+            window.location.assign("thankyou.html"); 
+        }, 400);
     } else {
         alert("Lomakkeen lähettäminen epäonnistui!\nKokeile myöhemmin uudelleen.\nVirhekoodi: " + error);
         
