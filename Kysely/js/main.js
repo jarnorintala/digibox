@@ -7,7 +7,7 @@ $(document).ready(function () {
         var items = [];
 
         $.each(data.kysymykset, function (key, d) {
-
+            /* luodaan textarea kentät */
             if (d.tyyppi == "text") {
                 items.push('<div class="form-group mb-5"><label for="' + d.kysymysid + '"><span class="questionheader">' + d.kysymys + '</span></label>');
 
@@ -15,6 +15,7 @@ $(document).ready(function () {
                 lomakekentta.push(d.kysymysid);
             }
             if (d.tyyppi == "radio") {
+                /*luodaan kuvabuttonit */
 
                 if (d.vaihtoehdot.length > 3) {
                     items.push('<div class="form-group mb-5"><label for="' + d.kysymysid + '"><span class="questionheader">' + d.kysymys + '</span></label><br>');
@@ -38,7 +39,10 @@ $(document).ready(function () {
 
                     items.push('</div>');
                     lomakekentta.push(d.kysymysid);
+
                 } else {
+                    /*luodaan normiradiot */
+
                     items.push('<div class="form-group mb-5"><label for="' + d.kysymysid + '"><span class="questionheader">' + d.kysymys + '</span></label><br>');
                     for (i = 0; i < d.vaihtoehdot.length; i++) {
 
@@ -78,9 +82,16 @@ $(document).ready(function () {
 
 });
 
+/* lomakkeen lähetys */
+
+var status = true;
+var error = "";
+var lahetys = [];
+
 function laheta() {
-    var vastaus;
-    var lahetys = [];
+    let vastaus;
+    let requests = 0;
+
     for (i = 0; i < lomakekentta.length; i++) {
 
         tyyppi = document.getElementById(lomakekentta[i]).type;
@@ -106,11 +117,13 @@ function laheta() {
 
     }
 
-    let status = true;
-    let error = "";
+    /*käydään jokainen vastaus läpi loopilla koska kokonaista olioletkaa ei pystytä lähettämään vielä tällä hetkellä */
+    /* request muuttujan avulla varmistetaan että kaikki indeksit käyty läpi for loopissa ennen jatkoa (async) */
+    
     for (let i = 0; i < lahetys.length; i++) {
-        const answer = lahetys[i];
+        requests++;
         $.ajax({
+
             url: 'https://dry-scrubland-49363.herokuapp.com/addvastaus',
             crossDomain: 'true',
             type: 'POST',
@@ -119,20 +132,38 @@ function laheta() {
 
                 "Content-Type": "application/json"
             },
-            data: answer,
+
+            data: lahetys[i],
             success: function () {
-                console.log(answer);
+                requests--;
+                console.log(lahetys[i]);
+                if (requests == 0) {
+                    handleSubmit();
+
+                }
             },
 
             error: function (xhr, textStatus, errorThrown) {
+                requests--;
                 status = false;
-                error = xhr.status;
+                error += xhr.status + ", ";
+                if (requests == 0) {
+                    handleSubmit();
+                }
+
             }
+
         });
+
     };
-    if (status === true) {
+};
+
+/* kun loop läpi kutsutaan funktiota joka ohjaa kiitossivulle */
+
+function handleSubmit() {
+    if (status) {
         console.log(lahetys);
-        document.getElementById("kyselylomake").reset();
+        console.log("POST Valmis");
         setTimeout(function () {
             window.location.assign("thankyou.html");
         }, 500);
@@ -140,7 +171,7 @@ function laheta() {
         alert("Lomakkeen lähettäminen epäonnistui!\nKokeile myöhemmin uudelleen.\nVirhekoodi: " + error);
 
     }
-};
+}
 
 function etusivu() {
     window.location.assign("index.html");
