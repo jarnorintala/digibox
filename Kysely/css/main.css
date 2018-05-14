@@ -1,3 +1,24 @@
+.btn-primary {
+    background: rgba(16, 6, 14, 0.6);
+    border: 0px solid #cccccc;
+    text-transform:uppercase;
+    font-weight:bold;
+    padding:15px;
+}
+.btn-primary:hover {
+    background: rgba(127, 149, 209, 0.3);
+    border: 0px solid #cccccc;
+    text-transform:uppercase;
+    font-weight:bold;
+    padding:15px;
+}
+.boxIntro{
+    background: rgba(127, 149, 209, 0.3);
+    margin: 0 auto;
+    width:800px;
+    padding:20px;
+}
+
 label > input{
     display: none;
     position:absolute;
@@ -78,10 +99,18 @@ iframe{
 }
 
 .kiitossivu .jumbotron{
-    background-color: rgb(110, 201, 218);
+    margin-top:25px;
+    background: rgba(127, 149, 209, 0.3);
     
 }
-
+.kiitossivu h1{
+    color:#ffffff;
+    padding-top:0vh;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    
+}
 .tervetuloasivu hr{
     border:1px solid white;
     width:70%;
