@@ -17,6 +17,7 @@ $(document).ready(function () {
             kysymys["kysymysid"] = d.kysymysid;
             kysymys["kysymys"] = d.kysymys;
             kysymys["tyyppi"] = d.tyyppi;
+            kysymys["vastaus"] = [];
             kysymys["vaihtoehdot"] = [];
             for (let i = 0; i < d.vaihtoehdot.length; i++) {
                 let vaihtoehto = d.vaihtoehdot[i];
@@ -101,7 +102,7 @@ function calculateRadioAnswers() {
 
                         if (vaihtoehto.vaihtoehto == answer) {
 
-                            vaihtoehto.vastaustenmaara += 1;
+                            vaihtoehto.vastaustenmaara++;
                         }
                     });
 
@@ -112,9 +113,28 @@ function calculateRadioAnswers() {
 
         }
 
+        if (tyyppi == "text") {
+
+            for (let k = 0; k < kysymykset.length; k++) {
+
+
+                if (kysymykset[k].kysymysid == answerId) {
+
+                    // kasvatetaan vastausten määrää mikäli kysymysten id ja vastaus täsmää
+                    kysymykset[k].vastaus.push(answer);
+
+                }
+
+
+            }
+
+        }
+
     }
+
+
     console.log(kysymykset);
-    fadeIn();
+    createCharts();
 }
 
 
@@ -123,40 +143,38 @@ function fadeIn() {
 
     $(".loader").fadeOut(500, function () {
         $(".vastaussivu").fadeIn(2000);
-        
+
     });
     console.log("printataan!");
-    createCharts()
+    
 }
 
-function createCharts(){
-    
+function createCharts() {
+
     for (let i = 0; i < kysymykset.length; i++) {
         const kysymys = kysymykset[i];
-        
+        const kysymysteksti = kysymys.kysymys;
+        const kysymysid = String(kysymys.kysymysid);
 
-        if(kysymys.tyyppi == "radio"){
-            const kysymysteksti = kysymys.kysymys;
-            const kysymysid = String(kysymys.kysymysid);
 
-            var data = [
-                {
-                  x: [],
-                  y: [],
-                  type: 'bar'
-                }
-              ];
+        if (kysymys.tyyppi == "radio") {
+
+            var data = [{
+                x: [],
+                y: [],
+                type: 'bar'
+            }];
             var layout = {
-                title:"Vastaukset kysymykseen: " + kysymysteksti
-              };
-            
-            
+                title: "Vastaukset kysymykseen: " + kysymysteksti
+            };
+
+
             for (let k = 0; k < kysymys.vaihtoehdot.length; k++) {
                 console.log(kysymys.vaihtoehdot[k].vaihtoehto);
 
                 data[0].x.push(kysymys.vaihtoehdot[k].vaihtoehto);
                 data[0].y.push(kysymys.vaihtoehdot[k].vastaustenmaara);
-                
+
             }
             $("<div/>", {
                 id: kysymysid,
@@ -165,8 +183,34 @@ function createCharts(){
 
             Plotly.newPlot(kysymysid, data, layout);
         }
-        
-    }
 
-    
+        if (kysymys.tyyppi == "text") {
+            let kaikkiVastaukset = "";
+            let vastauksenNumero = 0;
+            for (let i = 0; i < kysymys.vastaus.length; i++) {
+                vastauksenNumero++;
+                kaikkiVastaukset += "<p><span class='vastaus'>" + vastauksenNumero + ". vastaus:</span><span class='vastausteksti'> " + kysymys.vastaus[i] + "</span></p>";
+            }
+            
+            const otsikko = [];
+            otsikko.push("Vastaukset kysymykseen: " + kysymys.kysymys);
+
+            $("<h3/>", {
+                id: "otsikko" + kysymysid,
+                class: "m-5 vastausotsikko",
+                html: otsikko.join("")
+            }).appendTo("#charts");
+
+            $("<div/>", {
+                id: kysymysid,
+                class: "m-5",
+                html: kaikkiVastaukset
+            }).appendTo("#charts");
+
+
+        }
+
+    }
+    fadeIn();
+
 }

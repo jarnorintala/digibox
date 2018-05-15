@@ -119,7 +119,7 @@ function laheta() {
 
     /*käydään jokainen vastaus läpi loopilla koska kokonaista olioletkaa ei pystytä lähettämään vielä tällä hetkellä */
     /* request muuttujan avulla varmistetaan että kaikki indeksit käyty läpi for loopissa ennen jatkoa (async) */
-    
+
     for (let i = 0; i < lahetys.length; i++) {
         requests++;
         $.ajax({
