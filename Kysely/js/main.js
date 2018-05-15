@@ -22,16 +22,16 @@ $(document).ready(function () {
                     for (i = 0; i < d.vaihtoehdot.length; i++) {
                         let imgURL = "";
                         if (d.vaihtoehdot[i].vaihtoehto == "Erinomainen") {
-                            imgURL = "veryhappy.png";
+                            imgURL = "img/veryhappy.png";
                         }
                         if (d.vaihtoehdot[i].vaihtoehto == "Hyvä") {
-                            imgURL = "happy.png";
+                            imgURL = "img/happy.png";
                         }
                         if (d.vaihtoehdot[i].vaihtoehto == "Kohtalainen") {
-                            imgURL = "sad.png";
+                            imgURL = "img/sad.png";
                         }
                         if (d.vaihtoehdot[i].vaihtoehto == "Huono") {
-                            imgURL = "shouting.png";
+                            imgURL = "img/shouting.png";
                         };
                         items.push('<div class="form-check form-check-inline"> <label><input class="form-check-input" type="radio" name="' + d.kysymysid + '" id="' + d.kysymysid + '" value="' + d.vaihtoehdot[i].vaihtoehto + '"><img src="' + imgURL + '"></label></div>');
 
