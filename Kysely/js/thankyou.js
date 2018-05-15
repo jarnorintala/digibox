@@ -1,10 +1,12 @@
 $(document).ready(function () {
 
-    $(".kiitossivu").fadeIn(1000);
+    $(".kiitossivu").fadeIn(200);
 });
 
 function etusivu() {
+    $("body").fadeOut(1000, function () {
     window.location.assign("index.html");
+});
 }
 
 function answers() {
