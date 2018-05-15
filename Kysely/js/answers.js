@@ -207,6 +207,14 @@ function createCharts() {
         }
 
     }
+    $("<button/>", {
+        id: "etusivulle",
+        type: "button",
+        class: "btn btn-success m-4",
+        onclick: "etusivu()"
+    }).appendTo("#charts");
+    document.getElementById("etusivulle").innerText = 'Palaa Etusivulle';
+
     console.log("viety html:ään");
     fadeIn();
 
@@ -219,5 +227,8 @@ function fadeIn() {
 
     });
     console.log("Näytetään vastaussivu!");
-    
+}
+
+function etusivu(){
+    window.location.assign("index.html");
 }

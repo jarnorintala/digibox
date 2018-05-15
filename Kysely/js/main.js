@@ -11,7 +11,7 @@ $(document).ready(function () {
             if (d.tyyppi == "text") {
                 items.push('<div class="form-group mb-5"><label for="' + d.kysymysid + '"><span class="questionheader">' + d.kysymys + '</span></label>');
 
-                items.push('<textarea class="form-control" id="' + d.kysymysid + '" rows="3"></textarea></div>');
+                items.push('<textarea class="form-control" id="' + d.kysymysid + '" rows="3" required></textarea></div>');
                 lomakekentta.push(d.kysymysid);
             }
             if (d.tyyppi == "radio") {
@@ -46,7 +46,7 @@ $(document).ready(function () {
                     items.push('<div class="form-group mb-5"><label for="' + d.kysymysid + '"><span class="questionheader">' + d.kysymys + '</span></label><br>');
                     for (i = 0; i < d.vaihtoehdot.length; i++) {
 
-                        items.push('<div class="form-check form-check-inline"> <input class="form-check-input" type="radio" name="' + d.kysymysid + '" id="' + d.kysymysid + '" value="' + d.vaihtoehdot[i].vaihtoehto + '"><label class="form-check-label" for="' + d.kysymysid + '">' + d.vaihtoehdot[i].vaihtoehto + '</label></div>');
+                        items.push('<div class="form-check form-check-inline"> <input class="form-check-input" type="radio" name="' + d.kysymysid + '" id="' + d.kysymysid + '" value="' + d.vaihtoehdot[i].vaihtoehto + '" required><label class="form-check-label" for="' + d.kysymysid + '">' + d.vaihtoehdot[i].vaihtoehto + '</label></div>');
 
                     };
                     items.push('</div>');
@@ -58,7 +58,8 @@ $(document).ready(function () {
 
         $("<form/>", {
             id: 'kyselylomake',
-            html: items.join("")
+            html: items.join(""),
+            onsubmit: "return laheta()"
         }).appendTo("#lomake");
         $("<button/>", {
             class: 'btn btn-danger mb-5 mx-4',
@@ -69,8 +70,7 @@ $(document).ready(function () {
         $("<button/>", {
             class: 'btn btn-success mb-5 mx-4',
             id: 'lahetysnappi',
-            type: "button",
-            onclick: "laheta()"
+            type: "submit"
         }).appendTo("#kyselylomake");
 
         document.getElementById("lahetysnappi").innerText = 'Lähetä';
@@ -156,6 +156,7 @@ function laheta() {
         });
 
     };
+    return false;
 };
 
 /* kun loop läpi kutsutaan funktiota joka ohjaa kiitossivulle */
