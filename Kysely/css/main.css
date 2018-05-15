@@ -116,6 +116,9 @@ iframe{
   .vastaustulostus{
       display: none;
   }
+  .vastaussivu .container-fluid{
+      max-width:1920px;
+  }
 
   .vastausotsikko{
     font-size: 17px;
@@ -155,7 +158,5 @@ iframe{
     .tervetuloasivu h1{
         padding-top:5vh;
     }
-    .vastaussivu .container{
-        width:100%;
-    }
+
 }

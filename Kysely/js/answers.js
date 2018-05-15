@@ -164,9 +164,7 @@ function createCharts() {
                 y: [],
                 type: 'bar'
             }];
-            var layout = {
-                title: "Vastaukset kysymykseen: " + kysymysteksti
-            };
+            
 
 
             for (let k = 0; k < kysymys.vaihtoehdot.length; k++) {
@@ -176,12 +174,20 @@ function createCharts() {
                 data[0].y.push(kysymys.vaihtoehdot[k].vastaustenmaara);
 
             }
+            const otsikko = [];
+            otsikko.push("Vastaukset kysymykseen: " + kysymys.kysymys);
+            $("<h3/>", {
+                id: "otsikko" + kysymysid,
+                class: "m-5 vastausotsikko",
+                html: otsikko.join("")
+            }).appendTo("#charts");
+            
             $("<div/>", {
                 id: kysymysid,
                 class: "m-5"
             }).appendTo("#charts");
 
-            Plotly.newPlot(kysymysid, data, layout);
+            Plotly.newPlot(kysymysid, data);
         }
 
         if (kysymys.tyyppi == "text") {
