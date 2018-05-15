@@ -89,7 +89,6 @@ function calculateRadioAnswers() {
 
         if (tyyppi == "radio") {
 
-            let answerAmount = 0;
 
             for (let k = 0; k < kysymykset.length; k++) {
 
@@ -124,7 +123,50 @@ function fadeIn() {
 
     $(".loader").fadeOut(500, function () {
         $(".vastaussivu").fadeIn(2000);
-        printGraphs();
+        
     });
     console.log("printataan!");
+    createCharts()
+}
+
+function createCharts(){
+    
+    for (let i = 0; i < kysymykset.length; i++) {
+        const kysymys = kysymykset[i];
+        
+
+        if(kysymys.tyyppi == "radio"){
+            const kysymysteksti = kysymys.kysymys;
+            const kysymysid = String(kysymys.kysymysid);
+
+            var data = [
+                {
+                  x: [],
+                  y: [],
+                  type: 'bar'
+                }
+              ];
+            var layout = {
+                title:"Vastaukset kysymykseen: " + kysymysteksti
+              };
+            
+            
+            for (let k = 0; k < kysymys.vaihtoehdot.length; k++) {
+                console.log(kysymys.vaihtoehdot[k].vaihtoehto);
+
+                data[0].x.push(kysymys.vaihtoehdot[k].vaihtoehto);
+                data[0].y.push(kysymys.vaihtoehdot[k].vastaustenmaara);
+                
+            }
+            $("<div/>", {
+                id: kysymysid,
+                class: "m-5"
+            }).appendTo("#charts");
+
+            Plotly.newPlot(kysymysid, data, layout);
+        }
+        
+    }
+
+    
 }
