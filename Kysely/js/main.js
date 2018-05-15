@@ -76,22 +76,22 @@ $(document).ready(function () {
         document.getElementById("lahetysnappi").innerText = 'Lähetä';
         document.getElementById("lopeta").innerText = 'Peruuta';
 
-        $("#lopeta").mouseenter(function() {
+        $("#lopeta").mouseenter(function () {
             console.log("hiiripäällä");
-          $(".lomakesivu").addClass("redbackground");
-        });
-      
-         $("#lopeta").mouseout(function() {
-          $(".lomakesivu").removeClass("redbackground");
+            $(".lomakesivu").addClass("redbackground");
         });
 
-        $("#lahetysnappi").mouseenter(function() {
-            console.log("hiiripäällä");
-          $(".lomakesivu").addClass("greenbackground");
+        $("#lopeta").mouseout(function () {
+            $(".lomakesivu").removeClass("redbackground");
         });
-      
-         $("#lahetysnappi").mouseout(function() {
-          $(".lomakesivu").removeClass("greenbackground");
+
+        $("#lahetysnappi").mouseenter(function () {
+            console.log("hiiripäällä");
+            $(".lomakesivu").addClass("greenbackground");
+        });
+
+        $("#lahetysnappi").mouseout(function () {
+            $(".lomakesivu").removeClass("greenbackground");
         });
 
         $(".loader").fadeOut(500, function () {
@@ -111,7 +111,7 @@ var error = "";
 var lahetys = [];
 
 function laheta() {
-    $("#lomake").fadeOut(500, function(){
+    $("#lomake").fadeOut(500, function () {
         $(".loader").fadeIn(500);
     })
     let vastaus;

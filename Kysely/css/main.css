@@ -10,13 +10,13 @@ label>img {
     height: auto;
     margin: 20px 20px;
     cursor: pointer;
+    -webkit-transition: 0.2s;
     transition: 0.2s;
 }
 
 label>img:hover {
     -webkit-filter: none;
     filter: none;
-    -ms-transform: scale(1.5);
     -webkit-transform: scale(1.5);
     transform: scale(1.5);
 }
@@ -24,7 +24,6 @@ label>img:hover {
 label>input:checked+img {
     -webkit-filter: none;
     filter: none;
-    -ms-transform: scale(1.5);
     -webkit-transform: scale(1.5);
     transform: scale(1.5);
 }
@@ -38,9 +37,12 @@ iframe {
     min-height: 1440px;
     min-width: 2560px;
 }
-body{
+
+body {
+    -webkit-transition: .3s;
     transition: .3s;
 }
+
 #lomake {
     display: none;
 }
@@ -142,43 +144,49 @@ body{
 .lomakesivu .jumbotron {
     background-color: #8ee083;
 }
-.lomakesivu .container{
+
+.lomakesivu .container {
     background-color: rgba(255, 255, 255, 0.925);
 }
-.pompi{
-    -webkit-animation: pompi 1.5s ease-in-out ;
+
+.pompi {
+    -webkit-animation: pompi 1.5s ease-in-out;
     animation: pompi 1.5s linear ease-in-out;
 }
-.lomakesivu{
+
+.lomakesivu {
     background: url("../img/internet.jpg");
     background-size: cover;
 }
-.lomakesivu button{
+
+.lomakesivu button {
+    -webkit-transition: .4s;
     transition: .4s;
 }
-.lomakesivu button:hover{
-    -ms-transform: scale(1.2);
+
+.lomakesivu button:hover {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
+    -webkit-transition: .4s;
     transition: .4s;
 }
-.form-control{
-    max-width:500px;
-    margin:auto;
+
+.form-control {
+    max-width: 500px;
+    margin: auto;
 }
 
-.redbackground{
+.redbackground {
+    -webkit-transition: .5s;
     transition: .5s;
     background-color: rgb(173, 46, 46);
-    
 }
 
-.greenbackground{
+.greenbackground {
+    -webkit-transition: .5s;
     transition: .5s;
     background-color: #36c024b6;
 }
-
-
 
 @-webkit-keyframes pompi {
     40% {
@@ -197,16 +205,20 @@ body{
 
 @keyframes pompi {
     40% {
-        transform: scale(1.1);
+        
+                transform: scale(1.1);
     }
     60% {
-        transform: scale(1.0);
+        
+                transform: scale(1.0);
     }
     80% {
-        transform: scale(1.04);
+        
+                transform: scale(1.04);
     }
     100% {
-        transform: scale(1.0);
+        
+                transform: scale(1.0);
     }
 }
 
@@ -221,10 +233,12 @@ body{
 
 @keyframes spin {
     0% {
-        transform: rotate(0deg);
+        
+                transform: rotate(0deg);
     }
     100% {
-        transform: rotate(360deg);
+        
+                transform: rotate(360deg);
     }
 }
 

@@ -120,7 +120,7 @@ function generateAnswers() {
 
                 if (kysymykset[k].kysymysid == answerId) {
 
-                    
+
                     kysymykset[k].vastaus.push(answer);
 
                 }
@@ -155,11 +155,11 @@ function createCharts() {
                 y: [],
                 type: 'bar'
             }];
-            
+
 
 
             for (let k = 0; k < kysymys.vaihtoehdot.length; k++) {
-                
+
                 data[0].x.push(kysymys.vaihtoehdot[k].vaihtoehto);
                 data[0].y.push(kysymys.vaihtoehdot[k].vastaustenmaara);
 
@@ -171,7 +171,7 @@ function createCharts() {
                 class: "m-5 vastausotsikko",
                 html: otsikko.join("")
             }).appendTo("#charts");
-            
+
             $("<div/>", {
                 id: kysymysid,
                 class: "m-5"
@@ -187,7 +187,7 @@ function createCharts() {
                 vastauksenNumero++;
                 kaikkiVastaukset += "<p><span class='vastaus'>" + vastauksenNumero + ". vastaus:</span><span class='vastausteksti'> " + kysymys.vastaus[i] + "</span></p>";
             }
-            
+
             const otsikko = [];
             otsikko.push("Vastaukset kysymykseen: " + kysymys.kysymys);
 
@@ -229,6 +229,6 @@ function fadeIn() {
     console.log("Näytetään vastaussivu!");
 }
 
-function etusivu(){
+function etusivu() {
     window.location.assign("index.html");
 }
