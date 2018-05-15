@@ -1,99 +1,108 @@
-label > input{
+label>input {
     display: none;
-    position:absolute;
+    position: absolute;
 }
 
-label > img {
+label>img {
     -webkit-filter: grayscale(70%);
     filter: grayscale(70%);
-    width:40px;
+    width: 40px;
     height: auto;
     margin: 20px 20px;
     cursor: pointer;
     transition: 0.2s;
 }
 
-label > img:hover{
-    -webkit-filter: none;
-    filter: none;
-    -ms-transform: scale(1.5);
-    -webkit-transform: scale(1.5); 
-    transform: scale(1.5);
-
-}
-label > input:checked + img{
+label>img:hover {
     -webkit-filter: none;
     filter: none;
     -ms-transform: scale(1.5);
     -webkit-transform: scale(1.5);
     transform: scale(1.5);
 }
-iframe{
+
+label>input:checked+img {
+    -webkit-filter: none;
+    filter: none;
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+iframe {
     z-index: -99;
     position: absolute;
-    top:0;
-    width:100%;
-    height:100%;
-    min-height:1440px;
-    min-width:2560px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 1440px;
+    min-width: 2560px;
 }
-#lomake{
-    display:none;
-    
+body{
+    transition: .3s;
 }
+#lomake {
+    display: none;
+}
+
 #backgroundVideo {
     position: fixed;
     right: 0;
     bottom: 0;
-    min-width: 100%; 
+    min-width: 100%;
     min-height: 100%;
     z-index: -99;
 }
+
 .questionheader {
     font-size: 1.2rem;
     font-weight: 700;
 }
-.tervetuloasivu{
-    margin:0;
-    padding:0;
-    
+
+.tervetuloasivu {
+    margin: 0;
+    padding: 0;
 }
-.tervetuloasivu .jumbotron{
+
+.tervetuloasivu .jumbotron {
     min-height: 100vh;
     background-color: rgba(0, 0, 0, 0.158);
     color: white;
     font-weight: 700;
-    margin:0;
+    margin: 0;
     padding-bottom: 50px;
 }
-.tervetuloasivu h1{
-    padding-top:25vh;
+
+.tervetuloasivu h1 {
+    padding-top: 25vh;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
     font-weight: 900;
-    
-}
-.tervetuloasivu p{
-    font-size:1.25rem;
 }
 
-.kiitossivu .jumbotron{
+.tervetuloasivu p {
+    font-size: 1.25rem;
+}
+
+.kiitossivu .jumbotron {
     background-color: rgb(110, 201, 218);
-    
 }
 
-.tervetuloasivu hr{
-    border:1px solid white;
-    width:70%;
+.tervetuloasivu hr {
+    border: 1px solid white;
+    width: 70%;
 }
-.tervetuloasivu .btn-success{
+
+.tervetuloasivu .btn-success {
     opacity: 0.9;
 }
-.kiitossivu{
-    display:none;
+
+.kiitossivu {
+    display: none;
 }
+
 .loader {
-    margin-top:30vh;
+    margin-top: 30vh;
     z-index: 1;
     width: 150px;
     height: 150px;
@@ -104,59 +113,134 @@ iframe{
     height: 70px;
     -webkit-animation: spin 1.5s linear infinite;
     animation: spin 1.5s linear infinite;
-  }
-  .vastaus{
-      font-size: 15px;
-      font-family: "Open Sans", verdana, arial, sans-serif;
-      font-weight: normal;
-  }
-  .vastausteksti{
-      font-style: italic;
-  }
-  .vastaustulostus{
-      display: none;
-  }
-  .vastaussivu .container-fluid{
-      max-width:1920px;
-  }
+}
 
-  .vastausotsikko{
+.vastaus {
+    font-size: 15px;
+    font-family: "Open Sans", verdana, arial, sans-serif;
+    font-weight: normal;
+}
+
+.vastausteksti {
+    font-style: italic;
+}
+
+.vastaustulostus {
+    display: none;
+}
+
+.vastaussivu .container-fluid {
+    max-width: 1920px;
+}
+
+.vastausotsikko {
     font-size: 17px;
     font-family: "Open Sans", verdana, arial, sans-serif;
     font-weight: normal;
-  }
-  .bardiagram{
-      max-width:100%;
-  }
-  
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+}
 
-.hide{
-    display:none;
+.lomakesivu .jumbotron {
+    background-color: #8ee083;
+}
+.lomakesivu .container{
+    background-color: rgba(255, 255, 255, 0.925);
+}
+.pompi{
+    -webkit-animation: pompi 1.5s ease-in-out ;
+    animation: pompi 1.5s linear ease-in-out;
+}
+.lomakesivu{
+    background: url("../img/internet.jpg");
+    background-size: cover;
+}
+.lomakesivu button{
+    transition: .4s;
+}
+.lomakesivu button:hover{
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    transition: .4s;
+}
+.form-control{
+    max-width:500px;
+    margin:auto;
+}
+
+.redbackground{
+    transition: .5s;
+    background-color: rgb(173, 46, 46);
+    
+}
+
+.greenbackground{
+    transition: .5s;
+    background-color: #36c024b6;
 }
 
 
 
+@-webkit-keyframes pompi {
+    40% {
+        -webkit-transform: scale(1.3);
+    }
+    60% {
+        -webkit-transform: scale(1.0);
+    }
+    80% {
+        -webkit-transform: scale(1.1);
+    }
+    100% {
+        -webkit-transform: scale(1.0);
+    }
+}
+
+@keyframes pompi {
+    40% {
+        transform: scale(1.1);
+    }
+    60% {
+        transform: scale(1.0);
+    }
+    80% {
+        transform: scale(1.04);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hide {
+    display: none;
+}
+
 @media only screen and (max-width: 520px) {
-    label > img {
-        width:60px;
+    label>img {
+        width: 60px;
         margin: 20px 45px;
     }
-
 }
 
 @media only screen and (max-width: 768px) {
-
-    .tervetuloasivu h1{
-        padding-top:5vh;
+    .tervetuloasivu h1 {
+        padding-top: 5vh;
     }
-
 }
