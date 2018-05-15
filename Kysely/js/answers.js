@@ -21,7 +21,7 @@ $(document).ready(function () {
             kysymys["vaihtoehdot"] = [];
             for (let i = 0; i < d.vaihtoehdot.length; i++) {
                 let vaihtoehto = d.vaihtoehdot[i];
-                vaihtoehto["vastaustenmaara"] = 0; //tämän avulla pidetään kirjaa vastausten määrästä, jonka alculateRadioAnswers() funktio antaa
+                vaihtoehto["vastaustenmaara"] = 0; //tämän avulla pidetään kirjaa vastausten määrästä -> käytetään apuna generateAnswers funktiossa
                 kysymys.vaihtoehdot.push(vaihtoehto);
 
             }
@@ -67,7 +67,7 @@ $(document).ready(function () {
                 requests--;
                 if (requests == 0) {
                     console.log(answers);
-                    calculateRadioAnswers();
+                    generateAnswers();
                 }
             });
         };
@@ -76,9 +76,9 @@ $(document).ready(function () {
 
 })
 
-// laskee radio-inputtien vastausten määrän kullekin vaihdoehdolle
+// laskee radio-inputtien vastausten määrän kullekin vaihdoehdolle ja lisää tekstikentän vastauksen arvon kysymykset tauluun
 
-function calculateRadioAnswers() {
+function generateAnswers() {
 
 
     for (let i = 0; i < answers.length; i++) {
@@ -120,7 +120,7 @@ function calculateRadioAnswers() {
 
                 if (kysymykset[k].kysymysid == answerId) {
 
-                    // kasvatetaan vastausten määrää mikäli kysymysten id ja vastaus täsmää
+                    
                     kysymykset[k].vastaus.push(answer);
 
                 }
@@ -138,16 +138,7 @@ function calculateRadioAnswers() {
 }
 
 
-
-function fadeIn() {
-
-    $(".loader").fadeOut(500, function () {
-        $(".vastaussivu").fadeIn(2000);
-
-    });
-    console.log("printataan!");
-    
-}
+//tuodaan vastaukset näkyviin plot.ly:llä tai tekstinä
 
 function createCharts() {
 
@@ -168,8 +159,7 @@ function createCharts() {
 
 
             for (let k = 0; k < kysymys.vaihtoehdot.length; k++) {
-                console.log(kysymys.vaihtoehdot[k].vaihtoehto);
-
+                
                 data[0].x.push(kysymys.vaihtoehdot[k].vaihtoehto);
                 data[0].y.push(kysymys.vaihtoehdot[k].vastaustenmaara);
 
@@ -217,6 +207,17 @@ function createCharts() {
         }
 
     }
+    console.log("viety html:ään");
     fadeIn();
 
+}
+
+function fadeIn() {
+
+    $(".loader").fadeOut(500, function () {
+        $(".vastaussivu").fadeIn(2000);
+
+    });
+    console.log("Näytetään vastaussivu!");
+    
 }
