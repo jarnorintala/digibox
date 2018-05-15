@@ -76,24 +76,6 @@ $(document).ready(function () {
         document.getElementById("lahetysnappi").innerText = 'Lähetä';
         document.getElementById("lopeta").innerText = 'Peruuta';
 
-        $("#lopeta").mouseenter(function () {
-            console.log("hiiripäällä");
-            $(".lomakesivu").addClass("redbackground");
-        });
-
-        $("#lopeta").mouseout(function () {
-            $(".lomakesivu").removeClass("redbackground");
-        });
-
-        $("#lahetysnappi").mouseenter(function () {
-            console.log("hiiripäällä");
-            $(".lomakesivu").addClass("greenbackground");
-        });
-
-        $("#lahetysnappi").mouseout(function () {
-            $(".lomakesivu").removeClass("greenbackground");
-        });
-
         $(".loader").fadeOut(500, function () {
             $("#lomake").fadeIn(2000);
             $("h2").addClass("pompi");
@@ -163,6 +145,7 @@ function laheta() {
                 requests--;
                 console.log(lahetys[i]);
                 if (requests == 0) {
+
                     handleSubmit();
 
                 }
@@ -173,7 +156,9 @@ function laheta() {
                 status = false;
                 error += xhr.status + ", ";
                 if (requests == 0) {
+
                     handleSubmit();
+
                 }
 
             }
@@ -181,6 +166,7 @@ function laheta() {
         });
 
     };
+
     return false;
 };
 
@@ -188,7 +174,7 @@ function laheta() {
 
 function handleSubmit() {
     if (status) {
-        console.log(lahetys);
+
         console.log("POST Valmis");
         setTimeout(function () {
             window.location.assign("thankyou.html");

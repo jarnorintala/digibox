@@ -176,18 +176,6 @@ body {
     margin: auto;
 }
 
-.redbackground {
-    -webkit-transition: .5s;
-    transition: .5s;
-    background-color: rgb(173, 46, 46);
-}
-
-.greenbackground {
-    -webkit-transition: .5s;
-    transition: .5s;
-    background-color: #36c024b6;
-}
-
 @-webkit-keyframes pompi {
     40% {
         -webkit-transform: scale(1.3);
