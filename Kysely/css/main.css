@@ -87,7 +87,7 @@ body {
 }
 
 .kiitossivu .jumbotron {
-    background-color: rgb(110, 201, 218);
+    background-color: rgb(110, 201, 218 0.2);
 }
 
 .tervetuloasivu hr {
@@ -101,6 +101,8 @@ body {
 
 .kiitossivu {
     display: none;
+    background: url("../img/internet.jpg");
+    background-size: cover;
 }
 
 .loader {
