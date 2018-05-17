@@ -87,7 +87,7 @@ body {
 }
 
 .kiitossivu .jumbotron {
-    background-color: rgb(110, 201, 218 0.2);
+    background-color: rgb(110, 201, 218);
 }
 
 .tervetuloasivu hr {
@@ -101,8 +101,6 @@ body {
 
 .kiitossivu {
     display: none;
-    background: url("../img/internet.jpg");
-    background-size: cover;
 }
 
 .loader {
@@ -157,8 +155,7 @@ body {
 }
 
 .lomakesivu {
-    background: url("../img/internet.jpg");
-    background-size: cover;
+
 }
 
 .lomakesivu button {
@@ -234,6 +231,12 @@ body {
 
 .hide {
     display: none;
+}
+.backgroundimage{
+
+    background: url("../img/internet.jpg") !important;
+    background-size: cover;
+
 }
 
 @media only screen and (max-width: 520px) {

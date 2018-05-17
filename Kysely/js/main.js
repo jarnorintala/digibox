@@ -78,6 +78,7 @@ $(document).ready(function () {
 
         $(".loader").fadeOut(500, function () {
             $("#lomake").fadeIn(2000);
+            $(".lomakesivu").addClass("backgroundimage");
             $("h2").addClass("pompi");
         });
     });
